@@ -26,7 +26,7 @@ def extraer_picos(audio,display=False):
     D = np.abs(librosa.stft(y))
     Db = librosa.amplitude_to_db(D,ref=np.max)
     print(Db.shape)
-    #Hasta aquí demora 8 segs 
+    # Hasta aquí demora 8 segs 
 
     '''
     Usado para analizar Los Mayores puntos
@@ -45,7 +45,7 @@ def extraer_picos(audio,display=False):
     filas , cols = Db.shape
     
     #Iteramos sobre el tiempo, luego sobre la frecuencia ( Este For demora  23-8 = 15 )
-    for j in range(cols):
+    for j in range(cols):   
         for i in range(filas):
             #print(i,j)
             filteredD[i][j] = f(Db[i][j],int(frecuencia[i]),int(tiempo[j]))
