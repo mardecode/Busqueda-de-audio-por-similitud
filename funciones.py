@@ -28,7 +28,3 @@ def concatenacionBin2(ancla,id):
     numeroFull = anclaFull + idFull
 
     return int(numeroFull,2)
-
-    
-print concatenacionBin3(2,2,2)
-print concatenacionBin2(2,2)

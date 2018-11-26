@@ -13,6 +13,7 @@ class hash(object):
         while(self.tabla[ubicacion] != None):
             hubo = True
             ubicacion += 1
+            #print("loc",ubicacion) ###
             if ubicacion == self.size:
                 ubicacion = 0
         self.tabla[ubicacion] = dato
@@ -25,7 +26,7 @@ class hash(object):
      def buscar(self,dato):
          print (9)
          
-
+'''
 tamano = 1000
 numeros = np.random.randint(4294967295, size=tamano)
 
@@ -35,3 +36,4 @@ for i in range(tamano):
     tab.insertar(numeros[i],89)
 # tab.printo()
 print(tab.colison)
+'''
