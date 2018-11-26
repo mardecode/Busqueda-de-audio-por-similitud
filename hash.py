@@ -15,12 +15,12 @@ class hash(object):
         self.tabla[ubicacion] = dato
 
      def printo(self):
-         print self.tabla
+         print (self.tabla)
 
      def buscar(self,dato):
-         print 9
-
-
+         print (9)
+         
+'''
 numeros = np.random.randint(36000, size=30)
 
 tab = hash(30)
@@ -28,3 +28,4 @@ tab = hash(30)
 for i in range(30):
     tab.insertar(numeros[i])
 tab.printo()
+'''
