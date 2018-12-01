@@ -9,31 +9,45 @@ class hash(object):
         
      def insertar(self, llave,dato):
         ubicacion = llave%self.size
-        hubo = False
-        while(self.tabla[ubicacion] != None):
-            hubo = True
-            ubicacion += 1
-            #print("loc",ubicacion) ###
-            if ubicacion == self.size:
-                ubicacion = 0
-        self.tabla[ubicacion] = dato
-        if(hubo): self.colison += 1
+        # hubo = False
+        if(self.tabla[ubicacion] == None):
+            self.tabla[ubicacion] = []
+        self.tabla[ubicacion].append(dato)
+
+        # while(self.tabla[ubicacion] != None):
+        #     hubo = True
+        #     ubicacion += 1
+        #     if ubicacion == self.size:
+        #         ubicacion = 0
+        # self.tabla[ubicacion] = dato
+        # if(hubo): self.colison += 1
 
 
      def printo(self):
          print (self.tabla)
 
-     def buscar(self,dato):
-         print (9)
+     def buscar(self,llave):
+        ubicacion = llave%self.size
+        if(self.tabla[ubicacion]!= None): return self.tabla[ubicacion]
+        else: return None
          
-'''
-tamano = 1000
-numeros = np.random.randint(4294967295, size=tamano)
+
+tamano = 10
+# numeros = np.random.randint(4294967295, size=tamano)
 
 tab = hash(tamano)
 
-for i in range(tamano):
-    tab.insertar(numeros[i],89)
-# tab.printo()
-print(tab.colison)
-'''
+# for i in range(tamano):
+#     tab.insertar(numeros[i],89)
+# print(tab.colison)
+tab.insertar(1,34)
+tab.insertar(1,44)
+tab.insertar(1,22)
+tab.insertar(1,11)
+tab.printo()
+
+print tab.buscar(1)
+
+
+
+
