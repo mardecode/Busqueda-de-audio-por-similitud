@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 #import pandas as pd 
 from scipy import stats
-
+import time 
 
 count_picos = 0
 puntos = []
@@ -22,7 +22,10 @@ def f(x,f,t):
 
 def extraer_picos(audio,display=False):
     filename = audio
+    inicio = time.time()
     y, sr = librosa.load(filename)
+    fin = time.time()
+    print("cosa",fin-inicio)
     D = np.abs(librosa.stft(y))
     Db = librosa.amplitude_to_db(D,ref=np.max)
     print(Db.shape)
@@ -43,21 +46,28 @@ def extraer_picos(audio,display=False):
 
     filteredD = np.zeros(shape=Db.shape)
     filas , cols = Db.shape
-    
-    #Iteramos sobre el tiempo, luego sobre la frecuencia ( Este For demora  23-8 = 15 )
-    for j in range(cols):   
-        for i in range(filas):
-            #print(i,j)
-            filteredD[i][j] = f(Db[i][j],int(frecuencia[i]),int(tiempo[j]))
 
-    
+    start = time.time()
+    Db  = Db.tolist()
+    frecuencia = frecuencia.tolist()
+    tiempo = tiempo.tolist()
+    if display:
+        #lento
+        #Iteramos sobre el tiempo, luego sobre la frecuencia ( Este For demora  23-8 = 15 )
+        for j in range(cols):   
+            for i in range(filas):
+                filteredD[i][j] = f(Db[i][j],int(frecuencia[i]),int(tiempo[j]))
+        show(filteredD)
+    else:
+        puntos = [ (Db[i][j],int(frecuencia[i]),int(tiempo[j])) for i in range(filas) for j in range(cols)  if Db[i][j]>= -4  ]
+
+    end = time.time()
+    print("Tiempo BUCLE: ",end-start)
     
     print("Cant. Picos: ", count_picos)
-    #print(puntos)
-
-    if display:
-        show(filteredD)
-    return puntos 
+    
+    return puntos
+    
 
 def show(D):
     librosa.display.specshow(D, y_axis='log', x_axis='time')
