@@ -30,7 +30,7 @@ class hash(object):
             self.ocupados += 1 
 
         if(hubo): 
-            print("dato colisionado ",dato)
+            # print("dato colisionado ",dato)
             self.colisiones += 1
 
 
@@ -53,39 +53,33 @@ class hash(object):
             return None
          
 
-tamano = 10
-# numeros = np.random.randint(4294967295, size=tamano)
+#dato no poner numero par para el tamanio genera muchas colisiones de preferencia numero primo o impar 
+# EJEMPLO probable si cambias el tamanio por 10 inclusio 20 muchas colisiones
 
-tab = hash(tamano)
+# tamano = 15
 
-# for i in range(tamano):
-#     tab.insertar(numeros[i],89)
-# print(tab.colison)
+# tab = hash(tamano)
+
 # tab.insertar(1,34)
 # tab.insertar(1,22)
 # tab.insertar(11,11)
-tab.insertar(2,34)
-tab.insertar(2,19)
+# tab.insertar(2,34)
+# tab.insertar(2,19)
 # tab.insertar(21,44)
-tab.insertar(22,89)
+# tab.insertar(22,89)
+# tab.insertar(4,11)
+# tab.insertar(44,34)
+# tab.insertar(5,15)
+# tab.insertar(6,89)
+# tab.insertar(8,21)
+# tab.insertar(8,31)
 
-tab.insertar(4,11)
+# tab.printo()
 
-tab.insertar(44,34)
-
-tab.insertar(5,15)
-
-tab.insertar(6,89)
-
-tab.insertar(8,21)
-tab.insertar(8,31)
-
-tab.printo()
-
-print ( tab.buscar(22) )
-print ("datos ",tab.datos)
-print ("colisiones ", tab.colisiones)
-print ("ocupados", tab.ocupados)
+# print ( tab.buscar(22) )
+# print ("datos ",tab.datos)
+# print ("colisiones ", tab.colisiones)
+# print ("ocupados", tab.ocupados)
 
 
 
