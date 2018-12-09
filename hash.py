@@ -51,6 +51,11 @@ class hash(object):
         
         if(self.tabla[ubicacion] == None):
             return None
+
+     def info(self):
+        print ("colisiones ", self.colisiones)
+        print ("ocupados ",self.ocupados)
+        print ("datos ", self.datos)
          
 
 #dato no poner numero par para el tamanio genera muchas colisiones de preferencia numero primo o impar 
