@@ -32,7 +32,7 @@ def concatenacionBin2(ancla,id):
 def desconcatenacion(dato):
     original = "{0:b}".format(dato)
     punto = len(original) - 32 
-    return [int(original[:punto],2), int(original[punto:],2)]
+    return (int(original[:punto],2), int(original[punto:],2))
 
 
 # a =  concatenacionBin2(189,1024)

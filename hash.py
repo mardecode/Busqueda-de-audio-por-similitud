@@ -34,7 +34,7 @@ class hash(object):
             self.colisiones += 1
 
      def insertar2(self,llave,dato):
-        print ("say hi")
+        #print ("say hi")
         self.datos +=1
         ubicacion = llave%self.size
         hubo = False

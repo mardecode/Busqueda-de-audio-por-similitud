@@ -11,8 +11,10 @@ puntos = []
 
 # Dato (db) ,Frecuencia, Tiempo
 def f(x,f,t):
+    #return x 
+    
     global count_picos
-    if x >= -4:
+    if x >= -10:
         count_picos+=1
         puntos.append( (count_picos,f,t) )
         return x
@@ -25,7 +27,7 @@ def extraer_picos(audio,display=False):
     inicio = time.time()
     y, sr = librosa.load(filename)
     fin = time.time()
-    print("cosa",fin-inicio)
+    print("Tiempo de carga de audio: "+audio ,fin-inicio)
     D = np.abs(librosa.stft(y))
     Db = librosa.amplitude_to_db(D,ref=np.max)
     print(Db.shape)
@@ -47,7 +49,7 @@ def extraer_picos(audio,display=False):
     filteredD = np.zeros(shape=Db.shape)
     filas , cols = Db.shape
 
-    start = time.time()
+    #start = time.time()
     Db  = Db.tolist()
     frecuencia = frecuencia.tolist()
     tiempo = tiempo.tolist()
@@ -59,12 +61,12 @@ def extraer_picos(audio,display=False):
                 filteredD[i][j] = f(Db[i][j],int(frecuencia[i]),int(tiempo[j]))
         show(filteredD)
     else:
-        puntos = [ (Db[i][j],int(frecuencia[i]),int(tiempo[j])) for i in range(filas) for j in range(cols)  if Db[i][j]>= -4  ]
-
-    end = time.time()
-    print("Tiempo BUCLE: ",end-start)
+        puntos = [ (int(frecuencia[i]),int(tiempo[j])) for i in range(filas) for j in range(cols)  if Db[i][j]>= -10  ]
     
-    print("Cant. Picos: ", count_picos)
+    #end = time.time()
+    #print("Tiempo BUCLE: ",end-start)
+    
+    print("Cant. Picos: ", len(puntos))
     
     return puntos
     
