@@ -3,42 +3,42 @@ import basedatos
 import time 
 from hash import hash
 from funciones import desconcatenacion
-
+'''
 basedatos.nuevo()
 
 #Retorna una lista de tuplas con (frecuencia,tiempo)
 picos = extraer_picos("final/0.mp3",False)
-basedatos.insertar_cancion(picos,1)
+basedatos.insertar_cancion(picos,65531)
 #basedatos.tabla.info()
 
 #Retorna una lista de tuplas con (frecuencia,tiempo)
 picos = extraer_picos("final/1.mp3",False)
 print("Picos Extraidos")
-basedatos.insertar_cancion(picos,2)
+basedatos.insertar_cancion(picos,65532)
 
 picos = extraer_picos("final/2.mp3",False)
-basedatos.insertar_cancion(picos,3)
+basedatos.insertar_cancion(picos,65533)
 #basedatos.tabla.info()
 
 #Retorna una lista de tuplas con (frecuencia,tiempo)
 picos = extraer_picos("final/3.mp3",False)
 print("Picos Extraidos")
-basedatos.insertar_cancion(picos,4)
+basedatos.insertar_cancion(picos,65534)
 
 picos = extraer_picos("final/4.mp3",False)
 print("Picos Extraidos")
-basedatos.insertar_cancion(picos,5)
+basedatos.insertar_cancion(picos,65535)
 
 picos = extraer_picos("final/5.mp3",False)
 print("Picos Extraidos")
-basedatos.insertar_cancion(picos,6)
+basedatos.insertar_cancion(picos,65530)
 
 basedatos.tabla.info()
 
 basedatos.save()
 '''
 basedatos.load()
-'''
+#'''
 
 def buscar(name):
         audiotest = name 
@@ -63,7 +63,7 @@ def buscar(name):
                 if dato != None:
                         #print(dato[1])
                         if dato[1] >= umbral :
-                                print(dato[0])
+                                #print(dato[0])
                                 ta,id = desconcatenacion(dato[0])
                                 tabla3.insertar2(id,[ta,dato[2]])
 
